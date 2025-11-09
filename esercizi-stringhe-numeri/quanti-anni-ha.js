@@ -11,3 +11,15 @@
 
   http://www.imparareaprogrammare.it
 */
+
+
+const annoCorrente = 2025;
+const annoNascita = 1989;
+const età = annoCorrente - annoNascita;
+const anniMancanti = 100 - età;
+
+console.log('età=',età);
+console.log('anniMancanti=',anniMancanti);
+
+const AnniObject = 100
+const AnniAttuale = 36
