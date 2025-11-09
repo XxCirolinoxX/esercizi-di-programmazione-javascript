@@ -13,8 +13,10 @@
   http://www.imparareaprogrammare.it
 */
 
-var allTime = 12560
-var hour = 60;
-var minut = 60;
-var = Math.round(allTime/minut)*hour;
-console.log('$(allTime) dividendoli in '$(minut)
+const totalSeconds = 12560
+
+const hours = Math.floor(totalSeconds / 3600);
+const minutes = Math.floor((totalSeconds % 3600) / 60);
+const seconds = totalSeconds % 60;
+
+console.log(hours + " ore, " + minutes + " minuti e " + seconds + " secondi.");
