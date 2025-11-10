@@ -12,3 +12,26 @@
 
   http://www.imparareaprogrammare.it
 */
+
+
+// Creare l'array di 100 numeri casuali da 1 a 50
+let numerazione = [];
+for (let i = 0; i < 100; i++) {
+    numerazione[i] = Math.floor(Math.random() * 50) + 1;
+}
+
+// Ciclo principale: continua finché tutti gli elementi non sono zero
+while (!numerazione.every(val => val === 0)) {
+    // Chiedere un numero all'utente
+    let numeroUtente = Number(prompt("Inserisci un numero:"));
+
+    // Azzerare i multipli del numero inserito
+    for (let i = 0; i < numerazione.length; i++) {
+        if (numerazione[i] % numeroUtente === 0) {
+            numerazione[i] = 0;
+        }
+    }
+
+    console.log(numerazione);
+}
+                               
