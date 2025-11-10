@@ -31,3 +31,69 @@
 
   http://www.imparareaprogrammare.it
 */
+
+let guardie = [];
+let detenuti = [];
+let fascicoli = [];
+
+// Funzione: Aggiungi una guardia
+Function assumiGuardia(nome,cognome,matricola) {guardie.push({
+  nome:nome,
+    cognome:cognome,
+    matricola:matricola,
+});
+    //Funzione: Registra un detenuto
+                                                Function registraDetenuto(nome,cognome,idDetenuto) {detenuti.push{
+                                                  nome:nome,
+                                                    cognome:cognome,
+                                                    idDetenuto:idDetenuto,
+                                                    stato: "carcerato"; //stato iniziale
+                                                });
+                                                                                                    //aggiungi un fascicolo
+                                                                                                    Function AggiungiFascicolo (idDetenuti,dataIn,DataOut,Crimine) {fascicoli.push{
+                                                                                                      idDetenuti:idDetenuti,
+                                                                                                        DataIn:Datain,
+                                                                                                        DataOut:DataOut,
+                                                                                                        Crimine:Crimine,
+                                                                                                          });
+                                                                                                                                                                    
+             //Funzione visualizza Liste
+                                                                                                                                                                    Function mostraGuardie (){console.log("Guardie:" Guardie);}
+                                                                                                                                                                    Function mostraDetenuti (){console.log("Detenuti:"Detenuti);}
+                                                                                                                                                                    Function mostraFascicoli (){console.log("Fascicoli:"Fascicoli);}
+                                                                                                                                                                    // FUNZIONE: cerca fascicolo tramite nome
+function cercaFascicoloPerNome(nome) {
+  let detenutoTrovato = detenuti.find(d => d.nome === nome);
+  if (!detenutoTrovato) return console.log("Nessun detenuto trovato.");
+
+  let fascicoliTrovati = fascicoli.filter(f => f.idDetenuto === detenutoTrovato.id);
+  console.log("Fascicoli trovati:", fascicoliTrovati);
+}
+
+// FUNZIONI PER EVASIONE / DECESSO
+function evaso(idDetenuto) {
+  let d = detenuti.find(d => d.id === idDetenuto);
+  if (d) d.stato = "evaso";
+}
+
+function deceduto(idDetenuto) {
+  let d = detenuti.find(d => d.id === idDetenuto);
+  if (d) d.stato = "deceduto";
+}
+
+// FUNZIONE DI RIEPILOGO FINALE
+function riepilogoCarcere() {
+  let totGuardie = guardie.length;
+  let totDetenuti = detenuti.length;
+  let evasi = detenuti.filter(d => d.stato === "evaso").length;
+  let morti = detenuti.filter(d => d.stato === "deceduto").length;
+
+  console.log("----- RIEPILOGO CARCERE -----");
+  console.log("Guardie:", totGuardie);
+  console.log("Detenuti totali:", totDetenuti);
+  console.log("Detenuti evasi:", evasi);
+  console.log("Detenuti deceduti:", morti);
+  console.log("------------------------------");
+}
+
+
