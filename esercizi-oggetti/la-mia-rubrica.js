@@ -19,3 +19,43 @@
 
   http://www.imparareaprogrammare.it
 */
+
+
+Function contatti(nome,cognome,telefono,email){return{nome:nome,
+                                                      cognome:cognome,
+                                                      telefono:telefono,
+                                                      email:email};}
+const Rubrica = {contatti[],
+                  mostraTutti: function () {
+    console.log("----- RUBRICA -----");
+    this.contatti.forEach((contatto, index) => {
+      console.log(index + ")", contatto.nome, "-", contatto.telefono, "-", contatto.email);
+    });
+  },
+                 aggiungiContatto: function (contatto) {
+    this.contatti.push(contatto);
+    console.log(`Contatto "${contatto.nome}" aggiunto correttamente!`);
+                   cercaContatto: function (nome) {
+    return this.contatti.find(contatto => contatto.nome === nome);
+  },
+                 modificaContatto: function (nome, nuovoNome, nuovoTelefono, nuovaEmail) {
+    const index = this.contatti.findIndex(contatto => contatto.nome === nome);
+
+    if (index === -1) {
+      console.log(` Contatto "${nome}" non trovato.`);
+      return;
+      this.contatti[index] = Contatto(nuovoNome, nuovoTelefono, nuovaEmail);
+    console.log(` Contatto "${nome}" aggiornato!`);
+  },
+                 cancellaContatto: function (nome) {
+    const index = this.contatti.findIndex(contatto => contatto.nome === nome);
+
+    if (index === -1) {
+      console.log(` Contatto "${nome}" non trovato.`);
+      return;
+    }
+
+    this.contatti.splice(index, 1);
+    console.log(` Contatto "${nome}" cancellato!`);
+  }
+};
